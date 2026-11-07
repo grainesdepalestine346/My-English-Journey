@@ -10,4 +10,4 @@ No logo or charter was supplied. `assets/logo-placeholder.svg` and the colour va
 Works in-browser: recording, playback, delete (stored in IndexedDB on the device), optional en-GB transcript where the browser supports it, British spelling check on a short word list, self-assessment, notes.
 Needs an external AI service (not included): automatic grammar, vocabulary and pronunciation feedback. Use the checklist and teacher feedback instead.
 ## Content status
-Complete: Lesson 1 at A1, A2, B1, B2; placement test (8 questions); calendar of 32 lessons. To add a lesson, follow the structure of `LESSON` in `js/data.js`. A1/A2 include Arabic translations of vocabulary and instructions.
+Complete: Lesson 1 at A1, A2, B1, B2; placement test (8 questions); calendar of 32 lessons. To add a lesson, follow the structure of `LESSON` in `js/data.js`. The interface and all lessons are in English. At A1/A2, students can switch on optional Arabic help (vocabulary and instruction translations) with a checkbox; it is off by default.

@@ -2,9 +2,9 @@ const $=s=>document.querySelector(s),app=$("#app");
 const P=()=>JSON.parse(localStorage.getItem("gdp")||'{"level":"A1","q":{},"chk":{},"notes":"","fb":""}');
 const save=p=>localStorage.setItem("gdp",JSON.stringify(p));
 const esc=s=>String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const lvl=()=>P().level;const bil=l=>l==="A1"||l==="A2";
-function lvSel(){return `<label>Your level <select id="lv">${["A1","A2","B1","B2"].map(l=>`<option ${l===lvl()?"selected":""}>${l}</option>`).join("")}</select></label>`}
-function wireLv(){const s=$("#lv");if(s)s.onchange=()=>{const p=P();p.level=s.value;save(p);route()}}
+const lvl=()=>P().level;const isA=l=>l==="A1"||l==="A2";const bil=l=>isA(l)&&P().ar===true;
+function lvSel(){return `<label>Your level <select id="lv">${["A1","A2","B1","B2"].map(l=>`<option ${l===lvl()?"selected":""}>${l}</option>`).join("")}</select></label>${isA(lvl())?`<label><input type="checkbox" id="arb" ${P().ar?"checked":""}> Show Arabic help (translations of vocabulary and instructions)</label>`:""}`}
+function wireLv(){const a=$("#arb");if(a)a.onchange=()=>{const p=P();p.ar=a.checked;save(p);route()};const s=$("#lv");if(s)s.onchange=()=>{const p=P();p.level=s.value;save(p);route()}}
 // Quiz engine: check, explain, retry, score
 function quiz(id,items,l){return `<form data-quiz="${id}">`+items.map((it,i)=>`<div class="q"><b>${i+1}. ${esc(it[0])}</b>${it[1].map((o,j)=>`<label><input type="radio" name="q${i}" value="${j}"> ${esc(o)}</label>`).join("")}<div class="fb" id="f${i}" aria-live="polite"></div></div>`).join("")+`<button class="btn" type="submit">Check answers</button><button class="btn alt" type="reset">Try again</button> <b id="sc"></b></form>`}
 function wireQuiz(id,items){const f=document.querySelector(`[data-quiz="${id}"]`);if(!f)return;
@@ -14,8 +14,14 @@ if(!v){fb.innerHTML='<span class="bad">Choose an answer.</span>';return}
 if(+v.value===it[2]){s++;fb.innerHTML=`<span class="ok">✓ Correct.</span> ${esc(it[3])}`}else fb.innerHTML=`<span class="bad">✗ Not quite.</span> Correct answer: <b>${esc(it[1][it[2]])}</b>. ${esc(it[3])}`});
 $("#sc").textContent=`Score: ${s}/${items.length}`;const p=P();p.q[id]=Math.max(p.q[id]||0,Math.round(100*s/items.length));save(p)}}
 const R={
-"/"(){app.innerHTML=`<h1>English Journey: from beginner to university ready</h1><p>Eight months, one 60-minute teacher-led lesson a week, A1 to B2. Use this site before and after each class to revise and speak.</p><a class="btn" href="#/placement">Take the placement test</a><a class="btn alt" href="#/lesson">Open Lesson 1</a><a class="btn alt" href="#/speaking">Speaking practice</a><div class="card"><h2>What works now</h2><p>Dashboard, placement test, 32-lesson calendar, a complete sample lesson for each level (A1–B2) with reading, teacher-read listening script, quizzes with explanations, speaking tasks and writing models, voice recording, and progress tracking. Remaining lessons are listed in the calendar and are added level by level.</p></div>`},
-"/placement"(){app.innerHTML=`<h1>Placement test</h1><p>Indicative only. It checks grammar and reading, and does not replace a speaking and writing assessment with your teacher.</p>${quiz("placement",PLACEMENT,"")}<div id="res"></div>`;
+"/"(){const st=[["A1","Seed","Hello, my name is…",'<ellipse cx="32" cy="50" rx="7" ry="5" fill="currentColor"/>'],["A2","Sprout","I went to the market.",'<path d="M32 56V34M32 40c-9 0-12-6-12-12 9 0 12 6 12 12zm0-4c0-8 5-12 12-12 0 8-5 12-12 12z" fill="currentColor" stroke="currentColor" stroke-width="2"/>'],["B1","Plant","I would like to explain…",'<path d="M32 58V20M32 44c-11 0-15-7-15-14 11 0 15 7 15 14zm0-12c0-10 6-15 15-15 0 10-6 15-15 15zm0 14c8 0 12-5 12-11-8 0-12 5-12 11z" fill="currentColor" stroke="currentColor" stroke-width="2"/>'],["B2","Tree","To what extent do you agree?",'<rect x="29" y="34" width="6" height="24" fill="currentColor"/><circle cx="32" cy="22" r="16" fill="currentColor"/>']];
+const sk=[["Listening","Teacher-read scripts with questions and answer keys."],["Speaking","Record yourself, listen back and track your confidence."],["Reading","Emails, articles, stories and academic texts."],["Writing","Models, structures and criteria from messages to essays."]];
+app.innerHTML=`<section class="hero"><p class="kicker">Graines de Palestine presents</p><h1>Plant your English.<br>Grow it into university.</h1><p class="lead">Eight months. One lesson a week with your teacher. A free online space to revise, speak and practise in British English, from A1 to B2.</p><a class="btn big" href="#/placement">Find your level</a><a class="btn alt big" href="#/lesson">Try Lesson 1</a></section>
+<section aria-label="Levels"><h2>Four stages of growth</h2><div class="stages">${st.map(s=>`<a class="stage" href="#/lesson" onclick="const p=P();p.level='${s[0]}';save(p)"><svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">${s[3]}</svg><b>${s[0]}: ${s[1]}</b><span>“${s[2]}”</span></a>`).join("")}</div></section>
+<section><h2>Every lesson trains four skills</h2><div class="grid">${sk.map(k=>`<div class="card"><h3>${k[0]}</h3><p>${k[1]}</p></div>`).join("")}</div></section>
+<section><h2>Your eight-month journey</h2><ol class="months">${MONTHS.map((m,i)=>`<li><a href="#/calendar"><small>Month ${i+1}</small>${m[0]}</a></li>`).join("")}</ol></section>
+<section class="card how"><h2>How it works</h2><p><b>Before class:</b> preview the vocabulary. <b>In class:</b> speak, read and write with your teacher. <b>After class:</b> revise, take the quiz and record your answers. Your progress stays on your device.</p></section>`},
+"/placement"(){app.innerHTML=`<h1>Placement test</h1><p>Indicative only. It checks grammar and reading, and does not replace a speaking and writing assessment with your teacher.</p><p><b>Before you start:</b> complete the whole test in one sitting, without a dictionary, notes or help. Answer every question, then press "Check answers".</p>${quiz("placement",PLACEMENT,"")}<div id="res"></div>`;
 wireQuiz("placement",PLACEMENT);const f=$("form");const old=f.onsubmit;f.onsubmit=e=>{old(e);const by={A1:0,A2:0,B1:0,B2:0},tot={A1:0,A2:0,B1:0,B2:0};PLACEMENT.forEach((it,i)=>{tot[it[4]]++;const v=f.querySelector(`[name=q${i}]:checked`);if(v&&+v.value===it[2])by[it[4]]++});
 let lv="A1";["A1","A2","B1","B2"].forEach(l=>{if(by[l]>=1&&(l==="A1"||by[l]===tot[l]||by[l]>=1&&lv!=="A1"&&false))lv=l});
 let r="A1";for(const l of ["A1","A2","B1","B2"]){if(by[l]===tot[l])r=l;else break}
@@ -26,7 +32,7 @@ $("#res").innerHTML=`<div class="card"><h2>Estimated level: ${r}</h2><p>Strength
 "/lesson"(){const p=P(),l=p.level,d=LESSON.levels[l];const ins=d.instr[0]+(bil(l)?`<div class="ar">${d.instr[1]}</div>`:"");
 app.innerHTML=`<h1>${LESSON.title}</h1>${lvSel()}<p><span class="tag">${l}</span>Month 1, Week 1. 60-minute lesson.</p>
 <div class="card"><h2>Instructions</h2><p>${ins}</p></div>
-<div class="card"><h2>Vocabulary</h2><table>${d.vocab.map(v=>`<tr><td><b>${esc(v[0])}</b></td><td>${esc(v[2])}</td>${bil(l)?`<td class="ar">${v[1]}</td>`:`<td>${esc(v[1])}</td>`}</tr>`).join("")}</table></div>
+<div class="card"><h2>Vocabulary</h2><table>${d.vocab.map(v=>`<tr><td><b>${esc(v[0])}</b></td><td>${esc(v[2])}</td>${isA(l)?(bil(l)?`<td class="ar">${v[1]}</td>`:""):`<td>${esc(v[1])}</td>`}</tr>`).join("")}</table></div>
 <div class="card"><h2>Grammar focus</h2><p>${esc(LESSON.grammar[l])}</p></div>
 <div class="card"><h2>Reading</h2><p>${esc(d.reading)}</p></div>
 <div class="card"><h2>Listening script (teacher reads aloud)</h2><p>${esc(d.script)}</p></div>
