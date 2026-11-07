@@ -1,0 +1,253 @@
+{
+ "unit": "01",
+ "title": "Culture and identity",
+ "level": "B1",
+ "grammarTitle": "Present simple and continuous; question forms",
+ "objectives": [
+  "Talk about yourself, your family and your traditions",
+  "Use the present simple for habits and the present continuous for actions now",
+  "Ask and answer questions about identity and culture"
+ ],
+ "before": [
+  "Read the text in the Reading tab",
+  "Study the grammar explanation",
+  "Learn the six vocabulary items",
+  "Prepare your answer to speaking question 1"
+ ],
+ "during": [
+  "Introduce yourself and a classmate",
+  "Practise question forms in pairs",
+  "Discuss: what makes up your identity?"
+ ],
+ "after": [
+  "Repeat the grammar exercises",
+  "Review the vocabulary",
+  "Record your speaking answers",
+  "Complete the writing task and self-assessment"
+ ],
+ "vocab": [
+  {
+   "en": "identity",
+   "ar": "هُوِيَّة",
+   "syn": "self-image, character",
+   "ex": "Language is an important part of my identity.",
+   "exAr": "اللغة جزء مهم من هويتي.",
+   "use": "Noun. Who you are, as a person or a group."
+  },
+  {
+   "en": "heritage",
+   "ar": "تُراث",
+   "syn": "legacy, traditions",
+   "ex": "She is proud of her cultural heritage.",
+   "exAr": "هي فخورة بتراثها الثقافي.",
+   "use": "Noun. Traditions and history passed down. Collocation: cultural heritage."
+  },
+  {
+   "en": "tradition",
+   "ar": "تقليد",
+   "syn": "custom, practice",
+   "ex": "Having lunch together on Fridays is a family tradition.",
+   "exAr": "تناول الغداء معًا يوم الجمعة تقليد عائلي.",
+   "use": "Noun. Collocation: follow a tradition."
+  },
+  {
+   "en": "belong to",
+   "ar": "يَنتمي إلى",
+   "syn": "be part of",
+   "ex": "I feel that I belong to this community.",
+   "exAr": "أشعر أنني أنتمي إلى هذا المجتمع.",
+   "use": "Phrasal verb. Not used in the continuous form."
+  },
+  {
+   "en": "community",
+   "ar": "مجتمع محلي / جماعة",
+   "syn": "group, society",
+   "ex": "Our community organises a festival every year.",
+   "exAr": "ينظّم مجتمعنا مهرجانًا كل عام.",
+   "use": "Noun. People who live in the same area or share a background."
+  },
+  {
+   "en": "be proud of",
+   "ar": "يفتخر بـ",
+   "syn": "be pleased with",
+   "ex": "He is proud of his family's history.",
+   "exAr": "هو يفتخر بتاريخ عائلته.",
+   "use": "Expression. Followed by a noun or a gerund."
+  }
+ ],
+ "grammarExplain": "<p><b>Present simple</b> is for habits, routines and facts: <i>Yusuf speaks Arabic at home.</i> Add <b>-s</b> for he, she and it. Use <i>do/does</i> in questions and negatives: <i>Does she belong to a club? She doesn't belong to a club.</i></p><p><b>Present continuous</b> (<i>am/is/are</i> + verb-ing) is for actions happening now or around now: <i>The children are wearing traditional clothes today.</i></p><p><b>Question forms:</b> question word + do/does + subject + verb: <i>Where do your grandparents come from?</i></p>",
+ "grammar": [
+  {
+   "t": "mcq",
+   "q": "Yusuf ___ Arabic at home every day.",
+   "o": [
+    "speaks",
+    "is speaking",
+    "speak"
+   ],
+   "a": 0,
+   "e": "‘Every day’ shows a habit, so we use the present simple. With ‘Yusuf’ (he), add -s: speaks."
+  },
+  {
+   "t": "mcq",
+   "q": "Look! The children ___ traditional clothes for the festival.",
+   "o": [
+    "wear",
+    "are wearing",
+    "wears"
+   ],
+   "a": 1,
+   "e": "‘Look!’ shows something happening now, so we use the present continuous: are wearing."
+  },
+  {
+   "t": "gap",
+   "q": "Where ___ your grandparents come from? (do / does)",
+   "a": [
+    "do"
+   ],
+   "e": "‘Your grandparents’ is plural, so we use do."
+  },
+  {
+   "t": "gap",
+   "q": "She ___ (not / belong) to this club. Write the full answer.",
+   "a": [
+    "does not belong",
+    "doesn't belong",
+    "doesn’t belong"
+   ],
+   "e": "Present simple negative with she: does not (doesn't) + base verb."
+  },
+  {
+   "t": "mcq",
+   "q": "Error correction: which sentence is correct?",
+   "o": [
+    "What you do on Fridays?",
+    "What do you do on Fridays?",
+    "What you are doing on Fridays?"
+   ],
+   "a": 1,
+   "e": "Questions need do/does before the subject: What do you do…? The verb stays in its base form."
+  }
+ ],
+ "readingTitle": "My two languages",
+ "reading": "My name is Amina and I live in Birmingham. My parents come from Morocco, so I speak Arabic at home and English at school. Every Friday, my family has lunch together, and my grandmother tells us stories about her village. I am proud of my heritage, but I also feel British. For me, identity is not one thing. It is a mixture of language, family, traditions and the place where you live. At the moment, I am studying history at university, and I am learning about how people describe their own culture.",
+ "readingEx": [
+  {
+   "t": "mcq",
+   "q": "Main idea: what is the text mainly about?",
+   "o": [
+    "Amina's university course",
+    "How language, family and place form identity",
+    "Moroccan food"
+   ],
+   "a": 1,
+   "e": "The text says identity is a mixture of language, family, traditions and place."
+  },
+  {
+   "t": "mcq",
+   "q": "True or false: Amina speaks only English at home.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": 1,
+   "e": "False. She speaks Arabic at home and English at school."
+  },
+  {
+   "t": "mcq",
+   "q": "Specific information: when does Amina's family have lunch together?",
+   "o": [
+    "Every Friday",
+    "Every Sunday",
+    "Every morning"
+   ],
+   "a": 0,
+   "e": "The text says: ‘Every Friday, my family has lunch together.’"
+  },
+  {
+   "t": "mcq",
+   "q": "Vocabulary in context: ‘heritage’ is closest to…",
+   "o": [
+    "money",
+    "family history and traditions",
+    "a building"
+   ],
+   "a": 1,
+   "e": "Here ‘heritage’ means the history and traditions that a family or culture passes down."
+  },
+  {
+   "t": "mcq",
+   "q": "Inference: how does Amina probably feel about her identity?",
+   "o": [
+    "She must choose one identity",
+    "She is comfortable with more than one",
+    "She is ashamed of her heritage"
+   ],
+   "a": 1,
+   "e": "She is proud of her heritage and also feels British, so she accepts both."
+  }
+ ],
+ "listenTitle": "Two students meet",
+ "audio": "audio/unit-01/listening-1.mp3",
+ "script": "<b>Sara:</b> Hi, I'm Sara. Are you new here?<br><b>Omar:</b> Yes, I'm Omar. I'm studying engineering.<br><b>Sara:</b> Where are you from?<br><b>Omar:</b> I'm from Leeds, but my family comes from Egypt. We speak Arabic at home.<br><b>Sara:</b> That's interesting! Which traditions are important to your family?<br><b>Omar:</b> Eating together on Fridays. What about you?",
+ "listenEx": [
+  {
+   "t": "mcq",
+   "q": "What is Omar studying?",
+   "o": [
+    "History",
+    "Engineering",
+    "Medicine"
+   ],
+   "a": 1,
+   "e": "Omar says: ‘I'm studying engineering.’"
+  },
+  {
+   "t": "mcq",
+   "q": "True or false: Omar was born in Egypt.",
+   "o": [
+    "True",
+    "False"
+   ],
+   "a": 1,
+   "e": "False. He is from Leeds; his family comes from Egypt."
+  },
+  {
+   "t": "gap",
+   "q": "Omar's family eats together on ___. (one word)",
+   "a": [
+    "fridays",
+    "friday"
+   ],
+   "e": "He says: ‘Eating together on Fridays.’"
+  }
+ ],
+ "speak": [
+  "Introduce yourself. Where do you live, and what do you do every day?",
+  "Describe a tradition in your family. Why is it important to you?",
+  "Do you think language is part of identity? Give reasons."
+ ],
+ "targets": [
+  "identity",
+  "heritage",
+  "tradition",
+  "belong to",
+  "community",
+  "be proud of"
+ ],
+ "write": "Write 60–80 words about your identity. Include at least four vocabulary items, one present simple sentence and one present continuous sentence.",
+ "checks": [
+  "I wrote 60–80 words",
+  "I used at least four vocabulary items",
+  "I used the present simple correctly",
+  "I used the present continuous correctly",
+  "I checked spelling and punctuation"
+ ],
+ "can": [
+  "I can introduce myself and my family",
+  "I can use the present simple and continuous correctly",
+  "I can ask questions about culture and identity",
+  "I can understand a short text about identity",
+  "I can talk about a family tradition"
+ ]
+}

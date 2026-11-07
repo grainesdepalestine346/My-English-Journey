@@ -1,0 +1,27 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Unit</title>
+<link rel="stylesheet" href="assets/css/brand.css"><link rel="stylesheet" href="assets/css/base.css"></head><body><main id="m">Loading…</main>
+<script src="assets/js/config.js"></script><script src="assets/js/app.js"></script><script src="assets/js/recorder.js"></script><script>
+shell('My units');const U=(new URLSearchParams(location.search).get('u')||'01').padStart(2,'0'),m=$('#m');
+J(`content/units/unit-${U}.json`).then(d=>{document.title='Unit '+d.unit+' – '+d.title;
+const T=['overview','vocabulary','grammar','reading','listening','speaking','writing','review'],N={overview:'Overview',vocabulary:'Vocabulary',grammar:'Grammar',reading:'Reading',listening:'Listening',speaking:'Speaking',writing:'Writing',review:'Self-assessment'};
+const li=a=>'<ul>'+a.map(x=>`<li>${x}</li>`).join('')+'</ul>';
+m.innerHTML=`<h1>Unit ${d.unit}: ${d.title} <span class="tag">${d.level}</span></h1><div class="tabs" role="tablist"></div><div id="pn"></div>`;
+const P={};
+P.overview=E('div','',`<h2>Objectives</h2>${li(d.objectives)}<div class="stage"><b>Before class</b>${li(d.before)}</div><div class="stage"><b>During class</b>${li(d.during)}</div><div class="stage"><b>After class</b>${li(d.after)}</div>`);
+P.vocabulary=E('div','',`<h2>Vocabulary</h2>`+d.vocab.map(v=>`<div class="card" style="margin:.6rem 0"><div class="v"><div><h3>${v.en}</h3><p>Synonyms: ${v.syn}</p><p><i>${v.ex}</i></p><p>${v.use}</p></div><div><p class="ar" lang="ar">${v.ar}</p><p class="ar" lang="ar">${v.exAr}</p></div></div></div>`).join('')+`<div class="note"><b>Speak using the vocabulary.</b> Go to the Speaking tab and use these words in your answers.</div>`);
+P.grammar=E('div','',`<h2>${d.grammarTitle}</h2>${d.grammarExplain}<h3>Exercises</h3>`);P.grammar.append(exSet(d.grammar,U,'grammar'));
+P.reading=E('div','',`<h2>${d.readingTitle}</h2><div class="card"><p>${d.reading}</p></div><h3>Questions</h3>`);P.reading.append(exSet(d.readingEx,U,'reading'));
+const au=E('audio');au.controls=true;au.src=d.audio;const ph=E('p','note','');ph.hidden=true;au.onerror=()=>{ph.hidden=false;ph.textContent='Audio file not yet uploaded. Add a British English MP3 (no music) at: '+d.audio};au.load();
+P.listening=E('div','',`<h2>${d.listenTitle}</h2>`);P.listening.append(au,ph,E('details','',`<summary>Show transcript</summary><p>${d.script}</p>`),E('h3','','Questions'),exSet(d.listenEx,U,'listening'));
+P.speaking=E('div','',`<h2>Speaking practice</h2><p>Record your answer, listen to it, then record again if you wish. Use these words: <b>${d.targets.join(', ')}</b>.</p>`);
+d.speak.forEach((q,i)=>{P.speaking.append(E('h3','',`Question ${i+1}`),E('p','',q),recorder(U,i+1))});
+P.speaking.append(E('h3','','Word checklist (tick after recording)'),E('div','',d.targets.map(t=>`<label class="opt"><input type="checkbox"> I used “${t}”</label>`).join('')),E('p','note','Automatic transcription and correction need an external service and are <b>not active</b>. See docs/API-SETUP.md.'));
+P.writing=E('div','',`<h2>Writing task</h2><p>${d.write}</p><textarea class="gap" rows="8" style="width:100%" aria-label="Your writing"></textarea><h3>Self-check</h3>`+d.checks.map(c=>`<label class="opt"><input type="checkbox"> ${c}</label>`).join('')+`<p class="note">Writing is not marked automatically. Show it to your teacher.</p>`);
+const cb=(S.get()[U]||{}).can||[];
+P.review=E('div','',`<h2>Self-assessment</h2><p>Tick what you can do now. These are practice indicators, not an official CEFR result.</p>`+d.can.map((c,i)=>`<label class="opt"><input type="checkbox" data-i="${i}" ${cb.includes(i)?'checked':''}> ${c}</label>`).join(''));
+P.review.onchange=()=>{const s=S.get();s[U]=s[U]||{};s[U].can=[...P.review.querySelectorAll('input:checked')].map(i=>+i.dataset.i);S.set(s)};
+const tb=$('.tabs');T.forEach(t=>{const b=E('button','',N[t]);b.setAttribute('role','tab');b.onclick=()=>{location.hash=t};b.dataset.t=t;tb.append(b)});
+function show(t){if(!P[t])t='overview';$('#pn').replaceChildren(P[t]);tb.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.t===t))}
+show(location.hash.slice(1));window.onhashchange=()=>show(location.hash.slice(1));
+}).catch(()=>{m.innerHTML=`<h1>Unit ${U}</h1><p class="note">This unit has not been developed yet. Please see the <a href="programme.html">programme</a> for the units that are available.</p>`});
+</script></body></html>

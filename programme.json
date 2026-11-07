@@ -1,0 +1,159 @@
+{
+ "cycles": [
+  {
+   "name": "Cycle 1: Foundations (Months 1–2)",
+   "units": [
+    {
+     "w": 1,
+     "t": "Culture and identity",
+     "l": "B1",
+     "g": "Present simple and continuous; question forms",
+     "ok": true
+    },
+    {
+     "w": 2,
+     "t": "Contemporary social issues",
+     "l": "B1",
+     "g": "Should, must, have to; giving opinions",
+     "ok": false
+    },
+    {
+     "w": 3,
+     "t": "Media and public opinion",
+     "l": "B1",
+     "g": "Past simple vs present perfect",
+     "ok": false
+    },
+    {
+     "w": 4,
+     "t": "Britain and the rise of the Empire",
+     "l": "B1",
+     "g": "Past simple; time expressions; sequencing",
+     "ok": false
+    },
+    {
+     "w": 5,
+     "t": "Imperialism and its mechanisms",
+     "l": "B1+",
+     "g": "Passive voice (present and past)",
+     "ok": false
+    },
+    {
+     "w": 6,
+     "t": "Colonialism and resistance",
+     "l": "B1+",
+     "g": "Past continuous vs past simple; used to",
+     "ok": false
+    },
+    {
+     "w": 7,
+     "t": "Historical memory and postcolonial perspectives",
+     "l": "B1+",
+     "g": "First and second conditionals; basic reported speech",
+     "ok": false
+    },
+    {
+     "w": 8,
+     "t": "Synthesis and debate (first mini-debate)",
+     "l": "B1+",
+     "g": "Agreeing, disagreeing, structuring an opinion",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "name": "Cycle 2: Development (Months 3–4)",
+   "units": [
+    {
+     "w": 9,
+     "t": "Everyday life and social interactions",
+     "l": "B1+",
+     "g": "Present perfect simple and continuous; adverbs of frequency",
+     "ok": false
+    },
+    {
+     "w": 10,
+     "t": "University life and study skills",
+     "l": "B1+/B2",
+     "g": "Future forms; modals of obligation",
+     "ok": false
+    },
+    {
+     "w": 11,
+     "t": "Work, careers and applications",
+     "l": "B2",
+     "g": "Second conditional; polite questions",
+     "ok": false
+    },
+    {
+     "w": 12,
+     "t": "Workplace communication",
+     "l": "B2",
+     "g": "Modals of advice and deduction; reported speech",
+     "ok": false
+    },
+    {
+     "w": 13,
+     "t": "Technology and society",
+     "l": "B2",
+     "g": "Comparatives; passives; relative clauses; reporting verbs",
+     "ok": false
+    },
+    {
+     "w": 14,
+     "t": "Environment, climate and sustainable choices",
+     "l": "B2",
+     "g": "All passives; conditionals 0–3; wish; unless",
+     "ok": false
+    }
+   ]
+  },
+  {
+   "name": "Cycle 3: Mastery (Month 5)",
+   "units": [
+    {
+     "w": 15,
+     "t": "Culture, identity and contemporary social issues",
+     "l": "B2+",
+     "g": "Gerunds and infinitives; mixed conditionals; concession",
+     "ok": false
+    },
+    {
+     "w": 16,
+     "t": "Media and public opinion",
+     "l": "B2+/C1",
+     "g": "Advanced reported speech; hedging",
+     "ok": false
+    },
+    {
+     "w": 17,
+     "t": "Britain, Empire and imperialism",
+     "l": "C1",
+     "g": "Narrative tenses; nominalisation; cleft sentences",
+     "ok": false
+    },
+    {
+     "w": 18,
+     "t": "Colonialism and resistance",
+     "l": "C1",
+     "g": "Inversion; participle clauses",
+     "ok": false
+    },
+    {
+     "w": 19,
+     "t": "Historical memory and postcolonial perspectives",
+     "l": "C1",
+     "g": "Subjunctive; advanced modals; discourse markers",
+     "ok": false
+    },
+    {
+     "w": 20,
+     "t": "Synthesis and debate (final)",
+     "l": "C1",
+     "g": "Complex sentences; argument structure",
+     "ok": false
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,6 @@
+<!DOCTYPE html><html lang="en-GB"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>My progress</title>
+<link rel="stylesheet" href="assets/css/brand.css"><link rel="stylesheet" href="assets/css/base.css"></head><body><main><h1>My progress</h1>
+<p class="note">Your results are saved only in this browser on this device. Clearing browser data erases them. They are practice indicators, not an official CEFR assessment.</p><div id="p"></div><p><button class="btn alt" id="r">Reset my progress</button></p></main>
+<script src="assets/js/app.js"></script><script>shell('My progress');const K=['grammar','reading','listening'];
+function draw(){const s=S.get(),k=Object.keys(s);$('#p').innerHTML=k.length?`<table><tr><th>Unit</th><th>Grammar</th><th>Reading</th><th>Listening</th><th>Self-assessment</th></tr>${k.map(u=>`<tr><td><a href="unit.html?u=${u}">Unit ${u}</a></td>${K.map(x=>{const r=s[u][x];return`<td>${r?r.ok+' / '+r.n+(r.ok<r.n?' – revise':' ✓'):'Not started'}</td>`}).join('')}<td>${(s[u].can||[]).length} / 5 ticked</td></tr>`).join('')}</table>`:'<p>No activity yet. <a href="unit.html?u=01">Start Unit 1</a>.</p>'}
+draw();$('#r').onclick=()=>{if(confirm('Delete all saved progress on this device?')){try{localStorage.removeItem('gdp')}catch(e){}draw()}}</script></body></html>

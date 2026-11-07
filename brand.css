@@ -1,0 +1,7 @@
+/* PROVISIONAL brand values (visual estimates from the logo, NOT officially confirmed).
+   Replace these when the official HEX codes and font names are supplied. Nothing else needs editing. */
+:root{
+  --brand-green:#27836D; --brand-red:#C51F4B; --brand-black:#111111; --brand-white:#FFFFFF;
+  --font-body:system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; /* temporary, not the official typography */
+  --font-arabic:"Noto Naskh Arabic","Segoe UI",Tahoma,"Geeza Pro",serif;
+}
